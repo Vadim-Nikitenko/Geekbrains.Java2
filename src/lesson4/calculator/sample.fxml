@@ -8,15 +8,15 @@
     <stylesheets>
         <URL value="@/lesson4/calculator/style.css" />
     </stylesheets>
-    <GridPane fx:id="resultStr" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
         <TextField fx:id="textField" GridPane.columnIndex="0" GridPane.rowIndex="1" editable="false"/>
-        <Button fx:id="clearBtn" onAction="#clearTextField" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button onAction="#clearTextField" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <columnConstraints>
             <ColumnConstraints percentWidth="75" />
             <ColumnConstraints percentWidth="25" />
         </columnConstraints>
     </GridPane>
-    <GridPane fx:id="operands" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
         <children>
         <Button text="0" onAction="#insertOperand" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Button text="*" onAction="#insertOperator" GridPane.columnIndex="1" GridPane.rowIndex="4" />
