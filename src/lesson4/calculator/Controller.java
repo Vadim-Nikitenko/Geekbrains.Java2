@@ -20,7 +20,7 @@ public class Controller {
 
     List<String> list = new ArrayList<>(Arrays.asList("+", "-", "*", "/", "%"));
 
-    public void insertNumber(ActionEvent actionEvent) {
+    public void insertOperand(ActionEvent actionEvent) {
         Button btn = (Button) actionEvent.getSource();
         textField.appendText(btn.getText());
     }
@@ -30,7 +30,7 @@ public class Controller {
         textField.setStyle("-fx-font-size:30;");
     }
 
-    public void insertOperand(ActionEvent actionEvent) {
+    public void insertOperator(ActionEvent actionEvent) {
         Button btn = (Button) actionEvent.getSource();
         String text = textField.getText();
         int length = text.length();
