@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson4.calculator.Controller">
+    <stylesheets>
+        <URL value="@/lesson4/calculator/style.css" />
+    </stylesheets>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <TextField fx:id="textField" GridPane.columnIndex="0" GridPane.rowIndex="1" editable="false"/>
+        <Button onAction="#clearTextField" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <columnConstraints>
+            <ColumnConstraints percentWidth="75" />
+            <ColumnConstraints percentWidth="25" />
+        </columnConstraints>
+    </GridPane>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <children>
+        <Button text="0" onAction="#insertOperand" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Button text="*" onAction="#insertOperator" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button text="/" onAction="#insertOperator" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Button text="=" onAction="#calculate" GridPane.columnIndex="3" GridPane.rowIndex="4" styleClass="result"/>
+        <Button text="1" onAction="#insertOperand" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Button text="2" onAction="#insertOperand" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Button text="3" onAction="#insertOperand" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Button text="+" onAction="#insertOperator" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <Button text="4" onAction="#insertOperand" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button text="5" onAction="#insertOperand" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button text="6" onAction="#insertOperand" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Button text="-" onAction="#insertOperator" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Button text="7" onAction="#insertOperand" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button text="8" onAction="#insertOperand" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button text="9" onAction="#insertOperand" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button text="\%" onAction="#insertOperator" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        </children>
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints percentHeight="25" />
+            <RowConstraints percentHeight="25" />
+            <RowConstraints percentHeight="25" />
+            <RowConstraints percentHeight="25" />
+        </rowConstraints>
+    </GridPane>
+</GridPane>
