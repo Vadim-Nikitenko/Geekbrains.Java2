@@ -76,7 +76,11 @@ public class Controller implements Initializable {
                         if (str.startsWith("/authok ")) {
                             nick = str.split(" ")[1];
                             setAuthenticated(true);
+                            textArea.clear();
                             break;
+                        }
+                        if (str.startsWith("/authError")) {
+                            textArea.appendText("Пользователь уже авторизован");
                         }
 
                         textArea.appendText(str + "\n");

@@ -45,6 +45,7 @@ public class ClientHandler {
                                 for (ClientHandler c : server.getClients()) {
                                     if (c.getLogin().equals(token[1])) {
                                         System.out.println("Пользователь уже авторизован");
+                                        sendMsg("/authError");
                                         authorized = true;
                                         break;
                                     }
