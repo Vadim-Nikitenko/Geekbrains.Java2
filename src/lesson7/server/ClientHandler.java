@@ -10,8 +10,11 @@ public class ClientHandler {
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
+    private boolean authorized;
 
     private String nick;
+
+
     private String login;
 
     public ClientHandler(Server server, Socket socket) {
@@ -37,14 +40,24 @@ public class ClientHandler {
 
                             String newNick = server.getAuthService()
                                     .getNicknameByLoginAndPassword(token[1], token[2]);
-
+                            authorized = false;
                             if (newNick != null) {
-                                sendMsg("/authok " + newNick);
-                                nick = newNick;
-                                login = token[1];
-                                server.subscribe(this);
-                                System.out.println("Клиент: " + nick + " подключился");
-                                break;
+                                for (ClientHandler c : server.getClients()) {
+                                    if (c.getLogin().equals(token[1])) {
+                                        System.out.println("Пользователь уже авторизован");
+                                        authorized = true;
+                                        break;
+                                    }
+                                }
+                                if (!authorized) {
+                                    sendMsg("/authok " + newNick);
+                                    nick = newNick;
+                                    login = token[1];
+                                    server.subscribe(this);
+                                    System.out.println("Клиент: " + nick + " подключился");
+                                    authorized = false;
+                                    break;
+                                }
                             } else {
                                 sendMsg("Неверный логин / пароль");
                             }
@@ -111,5 +124,9 @@ public class ClientHandler {
 
     public String getNick() {
         return nick;
+    }
+
+    public String getLogin() {
+        return login;
     }
 }

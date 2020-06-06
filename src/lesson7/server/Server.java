@@ -9,6 +9,7 @@ import java.util.Vector;
 
 
 public class Server {
+
     private List<ClientHandler> clients;
     private AuthService authService;
 
@@ -64,5 +65,9 @@ public class Server {
 
     public AuthService getAuthService() {
         return authService;
+    }
+
+    public List<ClientHandler> getClients() {
+        return clients;
     }
 }
